@@ -1,6 +1,7 @@
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
 COPY . .
+RUN sed -i 's/\r$//' gradlew
 RUN chmod +x ./gradlew
 RUN ./gradlew build -x test
 EXPOSE 8080
